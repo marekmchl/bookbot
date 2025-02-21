@@ -1,10 +1,16 @@
+# Path to the book
+file_path = "books/frankenstein.txt"
+
 def main():
-    with open("books/frankenstein.txt") as f:
+    # Fetch the content of the file into a string
+    with open(file_path) as f:
         file_contents = f.read()
 
+    # Print the results
     print(words(file_contents))
     print(symbol_count(file_contents))
 
+# Returns word count of a string
 def words(string):
     words = string.split()
     return len(words)
