@@ -1,4 +1,5 @@
 # Path to the book
+from curses.ascii import isalpha
 file_path = "books/frankenstein.txt"
 
 def main():
@@ -7,8 +8,7 @@ def main():
         file_contents = f.read()
 
     # Print the results
-    print(words(file_contents))
-    print(symbol_count(file_contents))
+    print_report(words(file_contents), symbol_count(file_contents))
 
 # Returns word count of a string
 def words(string):
@@ -27,5 +27,19 @@ def symbol_count(input_string):
         result[symbol] += 1
 
     return result
+
+# Prints the book report
+def print_report(word_count, symbol_dict):
+    # Print header
+    print(f"--- Begin report of {file_path} ---")
+    # Print word count
+    print(f"{word_count} words found in the document")
+    print()
+    # Print letter counts
+    for symbol in symbol_dict:
+        if symbol.isalpha():
+            print(f"The '{symbol}' character was found {symbol_dict[symbol]} times")
+    # Print footer
+    print("--- End report ---")
 
 main()
