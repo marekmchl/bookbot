@@ -1,17 +1,16 @@
 # Path to the book
-from curses.ascii import isalpha
 file_path = "books/frankenstein.txt"
 
 def main():
     # Fetch the content of the file into a string
-    with open(file_path) as f:
-        file_contents = f.read()
+    with open(file_path) as file:
+        file_contents = file.read()
 
     # Print the results
-    print_report(words(file_contents), symbol_count(file_contents))
+    print_report(word_count(file_contents), symbol_count(file_contents))
 
 # Returns word count of a string
-def words(string):
+def word_count(string):
     words = string.split()
     return len(words)
 
