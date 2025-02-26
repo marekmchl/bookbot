@@ -1,5 +1,13 @@
+import sys
+
+# Test if a path to a book was given
+if len(sys.argv) < 2:
+    # No path
+    print("Usage: python3 main.py <path_to_book>")
+    sys.exit(1)
+
 # Path to the book
-file_path = "books/frankenstein.txt"
+file_path = sys.argv[1]
 
 def main():
     # Fetch the content of the file into a string
